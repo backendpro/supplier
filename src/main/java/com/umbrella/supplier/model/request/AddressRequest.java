@@ -1,44 +1,18 @@
-package com.umbrella.supplier.persistence.entity;
+package com.umbrella.supplier.model.request;
 
-import javax.persistence.*;
+public class AddressRequest {
 
-@Entity
-@Table(name = "address")
-public class Address {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Long id;
-
-    @Column(name = "street", nullable = false)
     private String street;
 
-    @Column(name = "city", nullable = false)
     private String city;
 
-    @Column(name = "state", nullable = false)
     private String state;
 
-    @Column(name = "number", nullable = false)
     private String number;
 
-    @Column(name = "postal_code", nullable = false)
     private String postalCode;
 
-    @Column(name = "country", nullable = false)
     private String country;
-
-    @OneToOne(mappedBy = "address")
-    private Supplier supplier;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getStreet() {
         return street;
@@ -86,13 +60,5 @@ public class Address {
 
     public void setCountry(String country) {
         this.country = country;
-    }
-
-    public Supplier getSupplier() {
-        return supplier;
-    }
-
-    public void setSupplier(Supplier supplier) {
-        this.supplier = supplier;
     }
 }
